@@ -1,26 +1,18 @@
 # rvip（Raft Virtual IP）
-rvip can be used to share a Virtual/Floating IP address between many computers. The IP address is assigned to only one computer. If that computer goes down, the same IP address is then reassigned to another computer in the cluster.
+rvip可用于多台服务器共享一个虚拟IP。IP地址分配给其中一台服务器，当此服务器宕机IP地址将重新分配给集群中的其他服务器。
 
-## Features
+## 特点
+- 不依赖其他服务
+- 采用Raft算法
 
-- Self contained binary that can be downloaded from GitHub
-- No external dependencies as in sevices
-- Uses [Raft Consensus](https://raft.github.io/) for cluster communication
+## 用法
 
-## Usage
+环境:
 
-Assuming that you have the following setup:
-
-- three Linux servers with the IP addresses: 192.168.0.101, 192.168.0.102, 192.168.0.103)
-- the three servers have the network interface eth1
-- the Virtual-IP is 192.168.0.50
-- the port 10000 for Raft on all three servers is free
-
-### Binary
-
-Download the binary from [release page](https://github.com/easykubeio/rvip/releases).
-
-Then on each server run the following commands
+- 三台linux服务器，IP地址: 192.168.0.101, 192.168.0.102, 192.168.0.103)
+- 服务器网络接口: eth1
+- 虚拟IP（vip）：192.168.0.50
+- 可用端口：10000
 
 Server1 (192.168.0.101):
 
