@@ -40,39 +40,4 @@ Server3 (192.168.0.103):
 sudo rvip -id server3 -bind 192.168.0.102:10000 -peers server1=192.168.0.101:10000,server2=192.168.0.102:10000,server3=192.168.0.103:10000 -interface eth1 -vip 192.168.0.50
 ```
 
-### Docker
-
-Alternatively, the Docker Image can be used like this.
-
-Server1 (192.168.0.101):
-
-```shell
-docker run -ti --rm --privileged --net=host easykubeio/rvip -id server1 -bind 192.168.0.101:10000 -peers server1=192.168.0.101:10000,server2=192.168.0.102:10000,server3=192.168.0.103:10000 -interface eth1 -vip 192.168.0.50
-```
-
-Server2 (192.168.0.102):
-
-```shell
-docker run -ti --rm --privileged --net=host easykubeio/rvip -id server2 -bind 192.168.0.102:10000 -peers server1=192.168.0.101:10000,server2=192.168.0.102:10000,server3=192.168.0.103:10000 -interface eth1 -vip 192.168.0.50
-```
-
-Server3 (192.168.0.103):
-
-```shell
-docker run -ti --rm --privileged --net=host easykubeio/rvip -id server3 -bind 192.168.0.102:10000 -peers server1=192.168.0.101:10000,server2=192.168.0.102:10000,server3=192.168.0.103:10000 -interface eth1 -vip 192.168.0.50
-```
-
-# Build
-
-To build from source code you need make and Docker, then run the following commands:
-
-
-```
-git clone git@github.com:easykubeio/rvip.git
-cd rvip
-make
-```
-
-The commands generate the binary virtual-ip in the current directory.
-
 
